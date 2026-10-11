@@ -1,0 +1,8 @@
+targets:
+  $default:
+    builders:
+      json_serializable:
+        options:
+          # Sérialise récursivement les modèles imbriqués (Event → DailySchedule…)
+          explicit_to_json: true
+          field_rename: snake

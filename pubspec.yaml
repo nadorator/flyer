@@ -1,0 +1,52 @@
+name: flyer
+description: "Flyer — l'app des photographes événementiels : events, flyers IA, publication multi-plateforme, kit partenaire et CRM léger."
+publish_to: 'none'
+
+version: 0.1.0+1
+
+environment:
+  sdk: ^3.8.1
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+
+  # Backend
+  supabase_flutter: ^2.9.0
+  flutter_dotenv: ^5.2.1
+
+  # État & modèles
+  flutter_riverpod: ^2.6.1
+  riverpod_annotation: ^2.6.1
+  freezed_annotation: ^3.0.0
+  json_annotation: ^4.9.0
+
+  # Navigation
+  go_router: ^15.1.2
+
+  # Utilitaires
+  intl: ^0.20.2
+  share_plus: ^11.0.0
+  file_picker: ^10.1.9
+  csv: ^6.0.0
+
+  # Monétisation
+  purchases_flutter: ^9.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+  build_runner: ^2.4.15
+  freezed: ^3.0.6
+  json_serializable: ^6.9.5
+  riverpod_generator: ^2.6.5
+  mocktail: ^1.0.4
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - .env
