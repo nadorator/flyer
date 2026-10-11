@@ -9,7 +9,10 @@ import '../../../core/supabase/supabase_client.dart';
 class AuthState {
   const AuthState({required this.isAuthenticated, this.userId, this.email});
 
-  const AuthState.signedOut() : isAuthenticated = false, userId = null, email = null;
+  const AuthState.signedOut()
+    : isAuthenticated = false,
+      userId = null,
+      email = null;
 
   final bool isAuthenticated;
   final String? userId;

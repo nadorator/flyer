@@ -22,7 +22,10 @@ void main() {
 
     expect(find.text('Flyer'), findsOneWidget);
     expect(find.text('Se connecter'), findsOneWidget);
-    expect(find.textContaining('Supabase n\'est pas configuré'), findsOneWidget);
+    expect(
+      find.textContaining('Supabase n\'est pas configuré'),
+      findsOneWidget,
+    );
 
     final button = tester.widget<FilledButton>(find.byType(FilledButton));
     expect(button.onPressed, isNull);

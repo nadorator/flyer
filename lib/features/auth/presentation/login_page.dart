@@ -101,7 +101,9 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                     controller: _password,
                     obscureText: true,
                     autofillHints: const [AutofillHints.password],
-                    decoration: const InputDecoration(labelText: 'Mot de passe'),
+                    decoration: const InputDecoration(
+                      labelText: 'Mot de passe',
+                    ),
                   ),
                   if (_error != null) ...[
                     const SizedBox(height: FlyerSpacing.sm),

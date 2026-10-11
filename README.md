@@ -16,6 +16,8 @@
 | [docs/05-monetisation.md](docs/05-monetisation.md) | Plans Gratuit / Pro / Studio / Partenaire, quotas, codes partenaires, B2B |
 | [docs/06-preparation-sprints.md](docs/06-preparation-sprints.md) | Sprints S0 → S7 : objectifs, hypothèses, stories, métriques, risques |
 | [docs/07-architecture.md](docs/07-architecture.md) | Flutter + Supabase + Edge Functions, schéma, flux, sécurité, RGPD |
+| [docs/08-design-tokens-et-maquettes-s1.md](docs/08-design-tokens-et-maquettes-s1.md) | Design tokens (`theme.dart`), maquettes basse fidélité S1, checklist Ready |
+| [docs/09-guide-entretiens.md](docs/09-guide-entretiens.md) | Guide d'entretiens S0, fiche de synthèse, checklist comptes développeur |
 
 ## Stack
 
@@ -70,6 +72,14 @@ npx supabase@latest functions serve             # Edge Functions en local
 ```
 
 Les squelettes d'Edge Functions se trouvent dans `supabase/functions/` : `generate-content`, `publish-meta`, `sync-crm`, `redeem-partner-code`.
+
+Buckets Storage (migration `storage_buckets`) : `logos` (public, 2 Mo), `flyers` et `kits` (privés, URLs signées). Convention de chemin : `<business_id>/<fichier>` — les policies n'autorisent que les membres de l'entreprise.
+
+### Intégration continue
+
+`.github/workflows/ci.yml` s'exécute sur chaque push / PR :
+- **flutter** : `build_runner`, `dart format --set-exit-if-changed`, `flutter analyze --fatal-infos`, `flutter test --coverage` ;
+- **supabase** : rejeu de toutes les migrations sur un Postgres local + `db lint`.
 
 ## Structure du code
 

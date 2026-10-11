@@ -31,18 +31,22 @@ gantt
 | **Hypothèse** | Aucune hypothèse produit ; validation des **proto-personas** (Camille, Marc, Sophie, Léa, Ahmed). |
 | **Stories** | FL-801 (analytics, 3 pts) + tâches techniques ci-dessous |
 
-### Contenu
-- Projet Supabase `staging` en région EU ; `supabase/migrations/0001_init.sql` appliquée ; buckets Storage `logos`, `flyers`, `kits`.
-- Squelette Flutter : dépendances, routing, thème, features placeholder, modèles freezed, tests verts (ce dépôt).
-- CI GitHub Actions : `analyze` + `test` + `build_runner`.
-- Design tokens (couleurs, typographies, espacements) dans `theme.dart` ; maquettes basse fidélité des écrans S1.
-- **5 interviews** de photographes (30 min) : guide d'entretien autour de « raconte-moi ton dernier event en magasin ».
-- 1 interview de responsable de magasin (Sophie).
+### Contenu & suivi (mis à jour le 11/10/2026)
+| Tâche | État |
+|---|---|
+| Projet Supabase région EU (`jupnhsmaerdkhwzgjxyn`, Irlande) lié au dépôt ; migrations `0001_init`, `harden_rls_and_public_event`, `storage_buckets` appliquées ; `db advisors` 0 ERROR | ✅ |
+| Buckets Storage `logos` (public), `flyers`, `kits` (privés, URLs signées) + policies par `business_id` | ✅ |
+| Squelette Flutter : dépendances, routing, thème, features placeholder, modèles freezed, tests verts | ✅ |
+| Dépôt GitHub + CI (`.github/workflows/ci.yml`) : `build_runner` + `dart format` + `flutter analyze` + `flutter test` + rejeu des migrations Supabase | ✅ |
+| Design tokens (couleurs, sémantique, typo, espacements, rayons) dans `theme.dart` ; maquettes basse fidélité S1 → `08-design-tokens-et-maquettes-s1.md` | ✅ |
+| Guide d'entretien + fiche de synthèse + checklist comptes → `09-guide-entretiens.md` | ✅ |
+| **5 interviews** de photographes (30 min) + 1 responsable de magasin (Sophie) | ☐ terrain |
+| App lancée sur iOS (nécessite un Mac) ; comptes Apple Developer / Google Play | ☐ |
 
 ### Critères de succès
-- `flutter analyze` 0 erreur, `flutter test` vert, app lancée sur Android + iOS avec écran de connexion placeholder.
-- Fiches personas mises à jour avec ≥ 3 verbatims réels chacune.
-- Backlog S1 à l'état *Ready*.
+- `flutter analyze` 0 erreur, `flutter test` vert, app lancée sur Android (✅) + iOS (☐) avec écran de connexion placeholder.
+- Fiches personas mises à jour avec ≥ 3 verbatims réels chacune (☐, après interviews).
+- Backlog S1 à l'état *Ready* (✅ checklist en fin de `08`, à confirmer après interviews).
 
 ### Risques
 - Comptes développeur Apple/Google non créés → démarrer la demande dès S0 (délais).

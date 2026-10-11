@@ -78,7 +78,11 @@ abstract class Event with _$Event {
       errors.add(EventValidationError.endBeforeStart);
     }
     for (final schedule in schedules) {
-      final day = DateTime(schedule.day.year, schedule.day.month, schedule.day.day);
+      final day = DateTime(
+        schedule.day.year,
+        schedule.day.month,
+        schedule.day.day,
+      );
       final start = DateTime(startDate.year, startDate.month, startDate.day);
       final end = DateTime(endDate.year, endDate.month, endDate.day);
       if (day.isBefore(start) || day.isAfter(end)) {

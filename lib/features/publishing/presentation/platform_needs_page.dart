@@ -59,8 +59,7 @@ class PlatformNeedsPage extends StatelessWidget {
                     Wrap(
                       spacing: FlyerSpacing.sm,
                       children: [
-                        for (final need in entry.value)
-                          _NeedChip(need: need),
+                        for (final need in entry.value) _NeedChip(need: need),
                       ],
                     ),
                   ],

@@ -32,7 +32,9 @@ class SupabaseConfig {
     final anonKey = dotenv.maybeGet('SUPABASE_ANON_KEY');
     final config = SupabaseConfig._(url: url, anonKey: anonKey);
 
-    if (!config.isConfigured || _isPlaceholder(url!) || _isPlaceholder(anonKey!)) {
+    if (!config.isConfigured ||
+        _isPlaceholder(url!) ||
+        _isPlaceholder(anonKey!)) {
       debugPrint(
         'Flyer : SUPABASE_URL / SUPABASE_ANON_KEY absents ou non renseignés, '
         'mode non configuré.',

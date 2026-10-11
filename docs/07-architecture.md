@@ -7,7 +7,7 @@ Décision validée : **Flutter + Supabase (région EU) + Edge Functions**. Le cl
 ```mermaid
 graph LR
   subgraph Client
-    A[App Flutter<br/>Android · iOS · Web]
+    A[App Flutter<br/>Android - iOS - Web]
   end
   subgraph Supabase EU
     B[Auth]
@@ -18,8 +18,8 @@ graph LR
   end
   subgraph Externes
     F[LLM texte<br/>+ API image]
-    G[Meta Graph API<br/>Google Business<br/>TikTok · LinkedIn]
-    H[Salesforce · Odoo]
+    G[Meta Graph API<br/>Google Business<br/>TikTok - LinkedIn]
+    H[Salesforce - Odoo]
     I[RevenueCat]
     J[Push: FCM / APNs]
   end
@@ -119,6 +119,7 @@ Tables complémentaires : `generated_contents` (propositions IA), `partner_kits`
 - **RLS activée sur toutes les tables** : un utilisateur ne voit que les lignes de son `business`.
 - Les tables publiques (`events` publiés, `partner_kits`) ne sont jamais lues directement par un anonyme : la **RPC** `get_public_event(slug)` (SECURITY DEFINER, colonnes publiques uniquement) et les RPC `kit_check` / `create_booking` sont les seuls points d'accès `anon`. Les autres fonctions SECURITY DEFINER (`is_business_member`, `current_plan`, triggers) sont révoquées pour `anon` / `PUBLIC`.
 - Les policies utilisent `(select auth.uid())` et un rôle explicite (`to authenticated`) ; `supabase db advisors --linked` ne doit remonter aucune erreur avant chaque release.
+- **Storage** : buckets `logos` (public, logos affichés sur la page publique et le kit), `flyers` et `kits` (privés, servis par URLs signées). Chemin `<business_id>/<fichier>` ; policies `storage.objects` limitées aux membres via `public.is_business_member(public.storage_business_id(name))`, types MIME et tailles bornés par bucket.
 - `social_connections.access_token` et `crm_connections.secret` chiffrés via Vault ; déchiffrés uniquement dans les Edge Functions (service role).
 - `analytics_events` : insertion autorisée pour l'utilisateur, lecture réservée au service role (dashboards).
 

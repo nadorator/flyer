@@ -69,8 +69,7 @@ class EventListPage extends ConsumerWidget {
             icon: Icons.auto_awesome_outlined,
             title: 'Génération IA',
             subtitle: 'Sprint 2 · FL-301',
-            onTap: () =>
-                context.go(AppRoutes.eventGeneratePath(_demoEventId)),
+            onTap: () => context.go(AppRoutes.eventGeneratePath(_demoEventId)),
           ),
           _NavTile(
             icon: Icons.checklist_outlined,
